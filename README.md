@@ -1,1 +1,2 @@
 # searchpoint-changelog
+# searchpoint-changelog
