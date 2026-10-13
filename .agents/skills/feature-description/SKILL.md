@@ -57,6 +57,30 @@ SearchPoint <version> introduces <brief summary sentence>.
 
 *(Note: If multiple features are included in a single release, duplicate the `## <Feature>` block for each feature).*
 
+### Variant-Specific Visibility (`hyperjump`, `smdv`, `sinarmas`)
+
+To hide a feature section or inline phrase for one or more variants (e.g., `sinarmas`), wrap it in an HTML comment block and optionally provide a variant-specific frontmatter override:
+
+```markdown
+---
+title: "SearchPoint in StartGPT, Outlook & Sticky Notes"
+title_sinarmas: "SearchPoint in Outlook & Sticky Notes"
+version: "0.31.0"
+date: "2026-10-08"
+---
+
+SearchPoint 0.31.0 extends your search across the apps you use every day, with <!-- hide: sinarmas -->SearchPoint inside StartGPT and <!-- /hide -->new connectors for Outlook and Sticky Notes.
+
+<!-- hide: sinarmas -->
+## SearchPoint inside StartGPT
+...
+<!-- /hide -->
+```
+
+- Multiple variants can be comma-separated: `<!-- hide: sinarmas, smdv --> ... <!-- /hide -->`.
+- Frontmatter fields `title_<variant>`, `summary_<variant>`, and `badge_<variant>` override the default values for that variant.
+- Setting `hide: <variant>` in frontmatter hides the entire release entry for that variant.
+
 ---
 
 ## 3. Microsoft Teams Announcement Post Format
